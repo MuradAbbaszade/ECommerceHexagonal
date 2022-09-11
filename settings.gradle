@@ -1,4 +1,5 @@
 rootProject.name = 'ecommerce-api'
 include 'domain'
 include 'infra'
+include 'infra'
 

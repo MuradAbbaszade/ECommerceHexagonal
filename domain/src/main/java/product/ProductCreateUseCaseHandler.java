@@ -9,7 +9,6 @@ import product.model.Product;
 import product.port.ProductPort;
 import product.usecase.CreateProduct;
 
-@Slf4j
 @DomainComponent
 public class ProductCreateUseCaseHandler implements UseCaseHandler<Product,CreateProduct> {
 
