@@ -1,7 +1,6 @@
 package product;
 
 import common.DomainComponent;
-import common.usecase.UseCaseHandler;
 import common.usecase.VoidEmptyUseCaseHandler;
 import product.port.ProductPort;
 
