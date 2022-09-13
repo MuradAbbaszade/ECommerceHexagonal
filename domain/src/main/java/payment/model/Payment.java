@@ -1,5 +1,12 @@
 package payment.model;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@Builder
 public class Payment {
     private int id;
     private double productPrice;
