@@ -14,9 +14,7 @@ import javax.persistence.Table;
 
 import account.model.Account;
 import com.company.adapter.role.jpa.entity.RoleEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,6 +24,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @ToString
 @Table(name = "user")
 @EqualsAndHashCode
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class AccountEntity implements Serializable {
 
     @Bean
@@ -48,21 +48,6 @@ public class AccountEntity implements Serializable {
     @JoinColumn(name = "role_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private RoleEntity role;
-
-    public AccountEntity() {
-    }
-
-    public AccountEntity(Integer id) {
-        this.id = id;
-    }
-
-    public AccountEntity(Integer id, String name, String password, String email, RoleEntity role) {
-        this.id = id;
-        this.name = name;
-        this.password = passwordEncoder().encode(password);
-        this.email = email;
-        this.role = role;
-    }
 
     public Account toModel() {
         return Account.builder()

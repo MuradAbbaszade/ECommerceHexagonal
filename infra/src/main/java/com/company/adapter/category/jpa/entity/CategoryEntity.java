@@ -2,9 +2,7 @@ package com.company.adapter.category.jpa.entity;
 
 import category.model.Category;
 import com.company.adapter.product.jpa.entity.ProductEntity;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
 import product.model.Product;
 
 import java.io.Serializable;
@@ -17,6 +15,8 @@ import javax.persistence.*;
 @Data
 @EqualsAndHashCode
 @Table(name = "category")
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class CategoryEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,14 +29,6 @@ public class CategoryEntity implements Serializable {
     @OneToMany(mappedBy = "category")
     private List<ProductEntity> productList;
 
-    public CategoryEntity() {
-    }
-    public CategoryEntity(String name) {
-        this.name=name;
-    }
-    public CategoryEntity(Integer id) {
-        this.id = id;
-    }
     public List<Product> getProducts() {
         List<Product> products = new ArrayList<>();
         for (ProductEntity productEntity : productList) {

@@ -1,8 +1,5 @@
 package com.company.adapter.product.jpa;
 
-import category.model.Category;
-import com.company.adapter.category.jpa.CategoryAdapter;
-import com.company.adapter.category.jpa.entity.CategoryEntity;
 import com.company.adapter.category.jpa.repository.CategoryRepository;
 import com.company.adapter.product.jpa.entity.ProductEntity;
 import com.company.adapter.product.jpa.repository.ProductRepository;
@@ -11,11 +8,8 @@ import org.springframework.stereotype.Service;
 import product.model.Product;
 import product.port.ProductPort;
 import product.usecase.CreateProduct;
-import product.usecase.ProductRetrieve;
-
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -26,19 +20,23 @@ public class ProductAdapter implements ProductPort {
     private final CategoryRepository categoryRepository;
 
     @Override
-    public Product createProduct(CreateProduct createProduct) {
+    public Product createProduct(CreateProduct createProduct) throws Exception {
         ProductEntity productEntity = new ProductEntity();
         productEntity.setName(createProduct.getName());
         productEntity.setCategory(categoryRepository.getReferenceById(createProduct.getCategoryId()));
         productEntity.setDescription(createProduct.getDesc());
         productEntity.setImage(createProduct.getImg());
         productEntity.setPrice(createProduct.getPrice());
-        return productRepository.save(productEntity).toModel();
+        return (Optional.of(productRepository.save(productEntity))
+                .map(ProductEntity::toModel)
+                .orElseThrow(() -> new Exception("Product cannot created")));
     }
 
     @Override
-    public Product getProductById(int id) {
-        return productRepository.findById(id).get().toModel();
+    public Product getProductById(int id) throws Exception {
+        return productRepository.findById(id)
+                .map(ProductEntity::toModel)
+                .orElseThrow(() -> new Exception("Cannot found product for this id"));
     }
 
     @Override
