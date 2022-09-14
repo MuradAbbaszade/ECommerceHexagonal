@@ -1,19 +1,13 @@
 package com.company.adapter.account.jpa.entity;
 
-
-import java.io.Serializable;
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import account.model.Account;
 import com.company.adapter.role.jpa.entity.RoleEntity;
+import com.company.common.entity.AbstractEntity;
 import lombok.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -26,7 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EqualsAndHashCode
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class AccountEntity implements Serializable {
+public class AccountEntity extends AbstractEntity {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -34,11 +28,6 @@ public class AccountEntity implements Serializable {
     }
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
     @Column(name = "name")
     private String name;
     @Column(name = "password")
@@ -51,7 +40,7 @@ public class AccountEntity implements Serializable {
 
     public Account toModel() {
         return Account.builder()
-                .id(id)
+                .id(super.getId())
                 .name(name)
                 .password(password)
                 .email(email)

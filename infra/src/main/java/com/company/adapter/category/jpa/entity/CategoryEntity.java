@@ -2,10 +2,9 @@ package com.company.adapter.category.jpa.entity;
 
 import category.model.Category;
 import com.company.adapter.product.jpa.entity.ProductEntity;
+import com.company.common.entity.AbstractEntity;
 import lombok.*;
 import product.model.Product;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
@@ -17,13 +16,9 @@ import javax.persistence.*;
 @Table(name = "category")
 @RequiredArgsConstructor
 @AllArgsConstructor
-public class CategoryEntity implements Serializable {
+public class CategoryEntity extends AbstractEntity {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
     @Column(name = "name")
     private String name;
     @OneToMany(mappedBy = "category")
@@ -39,7 +34,7 @@ public class CategoryEntity implements Serializable {
 
     public Category toModel() {
         return Category.builder()
-                .id(id)
+                .id(super.getId())
                 .name(name)
                 .productList(getProducts())
                 .build();

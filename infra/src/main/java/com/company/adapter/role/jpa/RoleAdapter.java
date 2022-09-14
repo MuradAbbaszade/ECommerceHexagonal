@@ -1,6 +1,5 @@
 package com.company.adapter.role.jpa;
 
-import com.company.adapter.product.jpa.entity.ProductEntity;
 import com.company.adapter.role.jpa.entity.RoleEntity;
 import com.company.adapter.role.jpa.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;

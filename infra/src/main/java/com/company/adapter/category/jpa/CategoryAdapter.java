@@ -2,7 +2,6 @@ package com.company.adapter.category.jpa;
 
 import category.model.Category;
 import category.port.CategoryPort;
-import com.company.adapter.account.jpa.entity.AccountEntity;
 import com.company.adapter.category.jpa.entity.CategoryEntity;
 import com.company.adapter.category.jpa.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
