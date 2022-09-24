@@ -1,0 +1,39 @@
+head     1.2;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.2
+date     2022.09.14.21.35.42;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.2
+log
+@@
+text
+@package product;
+
+import common.DomainComponent;
+import common.usecase.VoidEmptyUseCaseHandler;
+import lombok.RequiredArgsConstructor;
+import product.port.ProductPort;
+
+@@DomainComponent
+@@RequiredArgsConstructor
+public class ProductAdminUseCaseHandler implements VoidEmptyUseCaseHandler {
+
+    private final ProductPort productPort;
+
+    @@Override
+    public void handle() {
+        productPort.deleteAll();
+    }
+}
+@

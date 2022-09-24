@@ -1,0 +1,38 @@
+head     1.1;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.1
+date     2022.09.14.21.33.30;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.1
+log
+@@
+text
+@package com.company.adapter.product.rest;
+
+import com.company.adapter.product.jpa.ProductAdapter;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+@@RestController
+@@RequestMapping("/productadmin")
+@@RequiredArgsConstructor
+public class ProductAdminController {
+    private final ProductAdapter productAdapter;
+
+    @@PostMapping("/delete")
+    public void save(){
+           productAdapter.deleteAll();
+    }
+}
+@

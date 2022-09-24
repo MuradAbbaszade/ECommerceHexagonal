@@ -1,0 +1,28 @@
+head     1.2;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.2
+date     2022.09.14.21.35.42;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.2
+log
+@@
+text
+@package common.event;
+
+import common.model.Event;
+
+public interface EventPublisher<T extends Event> {
+    void publish(T event);
+}
+@

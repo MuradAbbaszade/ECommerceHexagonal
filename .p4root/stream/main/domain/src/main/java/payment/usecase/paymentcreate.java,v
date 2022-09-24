@@ -1,0 +1,33 @@
+head     1.2;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.2
+date     2022.09.14.21.35.42;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.2
+log
+@@
+text
+@package payment.usecase;
+
+import lombok.Builder;
+import lombok.Data;
+
+@@Data
+@@Builder
+public class PaymentCreate {
+    private int accountId;
+    private int productId;
+    private double productPrice;
+}
+@

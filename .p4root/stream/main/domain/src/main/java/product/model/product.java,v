@@ -1,0 +1,39 @@
+head     1.2;
+access   ;
+symbols  ;
+locks    ;comment  @@;
+
+
+1.2
+date     2022.09.14.21.35.42;  author p4;  state Exp;
+branches ;
+next     ;
+
+
+desc
+@@
+
+
+1.2
+log
+@@
+text
+@package product.model;
+
+import category.model.Category;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+@@Data
+@@Builder
+public class Product {
+    private int id;
+    private String name;
+    private String image;
+    private String description;
+    private double price;
+    private int categoryId;
+}
+@

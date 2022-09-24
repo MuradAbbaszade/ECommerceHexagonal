@@ -1,0 +1,5 @@
+Perforce server info:
+	2022/09/14 21:31:32 pid 5052 murad@murad-dvcs-1663173004 unknown [Helix P4V/NTX86/2021.1/2125979/v89] 'user-add -d -c 1 c:\Users\roma-cervice\ecommerce-api\.gitignore c:\Users\roma-cervice\ecommerce-api\build.gradle c:\Users\roma-cervice\ecommerce-api\gradlew c:\Users\roma-cervice\ecommerce-api\gradlew.bat c:\Users\roma-cervice\ecommerce-api\p4config.txt c:\Users\roma-cervice\ecommerce-api\p4ignore.txt c:\Users\roma-cervice\ecommerce-api\settings.gradle (132) c:\Users\roma-cervice\ecommerce-api\infra\build\classes\java\main\com\company\adapter\role\jpa\repository\RoleRepository.class'
+--- clients/murad-dvcs-1663173004(W)
+---   total lock wait+held read/write 0ms+0ms/0ms+1234ms
+
